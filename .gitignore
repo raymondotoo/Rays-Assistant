@@ -1,3 +1,5 @@
+# Ignore only the specific .dmg file
+electron-app/dist/rays-llm-electron-1.0.0-arm64.dmg
 # Ignore Electron build outputs and installers
 electron-app/dist/
 electron-app/*.dmg
@@ -13,7 +15,6 @@ frontend/build/
 
 # Ignore node_modules and Python venv
 frontend/node_modules/
-electron-app/node_modules/
 backend/venv/
 
 # Ignore other large files
