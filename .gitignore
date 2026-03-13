@@ -1,0 +1,22 @@
+# Ignore Electron build outputs and installers
+electron-app/dist/
+electron-app/*.dmg
+electron-app/*.app
+
+# Ignore backend build outputs
+backend/dist/
+backend/build/
+
+# Ignore frontend build outputs
+frontend/dist/
+frontend/build/
+
+# Ignore node_modules and Python venv
+frontend/node_modules/
+backend/venv/
+
+# Ignore other large files
+*.dmg
+*.app
+*.exe
+*.zip
