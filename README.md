@@ -1,6 +1,13 @@
-## Dashboard Preview
+<!-- Badges -->
+[![Build Status](https://github.com/raymondotoo/Rays-Assistant/actions/workflows/main.yml/badge.svg)](https://github.com/raymondotoo/Rays-Assistant/actions)
+[![License](https://img.shields.io/github/license/raymondotoo/Rays-Assistant?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/blob/main/LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/raymondotoo/Rays-Assistant?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases)
+[![Downloads](https://img.shields.io/github/downloads/raymondotoo/Rays-Assistant/total?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases)
+[![Issues](https://img.shields.io/github/issues/raymondotoo/Rays-Assistant?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/raymondotoo/Rays-Assistant?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/pulls)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge)](https://github.com/psf/black)
+[![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg?style=for-the-badge)](https://prettier.io)
 
-![Rays-Assistant Dashboard](Rays%20LLM%20Dashboard.png)
 ## Rays-Assistant
 
 Rays-Assistant is a privacy-focused desktop app for interacting with multiple local LLMs (Ollama, GPT-Neo, Mistral, etc.) via a modern dashboard. All models run entirely on your device—no cloud, no data sharing. Enjoy persistent learning, conversation history, and easy model switching with full control over your data.
@@ -17,23 +24,6 @@ Rays-Assistant is a privacy-focused desktop app for interacting with multiple lo
 3. Launch Rays-Assistant.
 
 For more details, see INSTALL.md.
-# Step-by-Step Creation & Packaging Guide
-
-## How the Components Work
-
-- **Node.js**: A runtime that lets you run JavaScript outside the browser. It’s used for development tools, running servers, and powering Electron apps.
-- **React**: A JavaScript library for building user interfaces. Your dashboard is built with React, making it interactive and modern.
-- **Electron**: A framework that lets you package web apps (like React) as desktop apps. It wraps your frontend and backend, so you can run everything as a native macOS app.
-- **FastAPI**: A Python web framework for building APIs. It powers your backend, handling chat, metrics, and database storage.
-- **Ollama**: A local LLM server that runs models like Mistral and GPT-OSS. Your app connects to Ollama to generate responses.
-
----
-
-## App Size & Requirements
-
-- **Installer Size**: The .dmg installer is typically 100–300 MB, depending on backend and frontend build size.
-- **Disk Space**: The app itself (after install) uses 200–500 MB. Downloaded models via Ollama may use several GB (each model is 2–4 GB).
-- **Requirements**:
 	- macOS 11+ (Apple Silicon or Intel)
 	- Python 3.8+ (for backend)
 	- Node.js 16+ (for frontend/Electron)
