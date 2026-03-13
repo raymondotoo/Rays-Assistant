@@ -1,8 +1,3 @@
-## Dashboard Preview
-
-![Rays-Assistant Dashboard](Rays%20LLM%20Dashboard.png)
-## Rays-Assistant
-
 Rays-Assistant is a desktop app for interacting with multiple local LLMs (Ollama, GPT-Neo, Mistral, etc.) via a modern dashboard. It features persistent learning, conversation history, and easy model switching.
 
 ## Dashboard Preview
