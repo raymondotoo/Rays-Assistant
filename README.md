@@ -3,22 +3,20 @@
 ![Rays-Assistant Dashboard](Rays%20LLM%20Dashboard.png)
 ## Rays-Assistant
 
+Rays-Assistant is a desktop app for interacting with multiple local LLMs (Ollama, GPT-Neo, Mistral, etc.) via a modern dashboard. It features persistent learning, conversation history, and easy model switching.
+
+## Dashboard Preview
+![Rays-Assistant Dashboard](Rays%20LLM%20Dashboard.png)
+
+## Download & Install
+
 [![Download for macOS](https://img.shields.io/badge/Download-macOS%20.dmg-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/download/v1.0.0/rays-llm-electron-1.0.0-arm64.dmg)
 
-### Install
 1. Download the .dmg file above.
 2. Open and drag the app to Applications.
 3. Launch Rays-Assistant.
 
 For more details, see INSTALL.md.
-
----
-
-# Step-by-Step Creation & Packaging Guide
-
-## How the Components Work
-
-...
 # Step-by-Step Creation & Packaging Guide
 
 ## How the Components Work
