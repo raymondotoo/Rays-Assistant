@@ -15,6 +15,7 @@ frontend/build/
 
 # Ignore node_modules and Python venv
 frontend/node_modules/
+electron-app/node_modules/
 backend/venv/
 
 # Ignore other large files
