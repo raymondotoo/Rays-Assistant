@@ -1,0 +1,2 @@
+# Rays-Assistant
+Local LLM
