@@ -22,7 +22,7 @@ Choose the correct version for your Mac's processor.
 | Processor | Download Link |
 | :--- | :--- |
 | **Apple Silicon** (M1, M2, M3, etc.) | [![Download for macOS (Apple Silicon)](https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/latest/download/rays-llm-electron-1.0.0-arm64.dmg) |
-| **Intel** | [![Download for macOS (Intel)](https://img.shields.io/badge/Download-macOS%20Intel-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/latest/download/rays-llm-electron-1.0.0-x64.dmg) |
+| **Intel** | [![Download for macOS (Intel)](https://img.shields.io/badge/Download-macOS%20Intel-blue?style=for-the-badge)]([https://github.com/raymondotoo/Rays-Assistant/releases/latest/download/rays-llm-electron-1.0.0-x64.dmg](https://github.com/raymondotoo/Rays-Assistant/releases/download/v1.0.3/rays-llm-electron-1.0.0.dmg)) |
 
 **Installation Steps:**
 1.  Download the correct `.dmg` file for your Mac.
