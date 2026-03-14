@@ -1,0 +1,10 @@
+{
+  "name": "rays-assistant-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd frontend && npm install && cd ../electron-app && npm install",
+    "dev": "chmod +x start_dev.sh && ./start_dev.sh",
+    "build": "chmod +x build_installer.sh && ./build_installer.sh"
+  }
+}

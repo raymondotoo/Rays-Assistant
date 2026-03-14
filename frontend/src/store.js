@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:8001/api'
+const API_BASE = 'http://localhost:8000/api'
 
 export const useChatStore = create((set, get) => ({
   conversationId: null,

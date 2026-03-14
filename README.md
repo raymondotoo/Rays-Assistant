@@ -28,6 +28,7 @@ For more details, see INSTALL.md.
 	- Python 3.8+ (for backend)
 	- Node.js 16+ (for frontend/Electron)
 	- Ollama installed (for LLM models)
+	- ~15 GB free disk space (for AI models)
 	- 8 GB RAM minimum recommended
 
 ---
@@ -47,6 +48,7 @@ cd Rays-Assistant
 - Python 3.8+
 - Node.js 16+ and npm
 - Ollama (https://ollama.ai) installed on your machine
+- **Disk Space**: Approximately 12.3 GB for the default model set.
 
 ---
 
@@ -182,6 +184,7 @@ A sophisticated multi-model LLM dashboard that runs multiple excellent-performin
 2. **Node.js 16+** and npm
 3. **Ollama**: Download from https://ollama.ai
 4. **LLM Models**: Pull models via Ollama
+5. **Storage**: ~15 GB free space recommended
 
 ## Quick Start 🚀
 
@@ -198,7 +201,7 @@ pip install -r requirements.txt
 # Start Ollama
 ollama serve
 
-# Pull models (in another terminal)
+# Pull models (in another terminal) - Total ~12.3 GB
 ollama pull mistral
 ollama pull neural-chat
 ollama pull openhermes

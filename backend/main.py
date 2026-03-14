@@ -61,9 +61,14 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True
-    )
+    import sys
+    
+    # Check if running as a PyInstaller bundle
+    is_frozen = getattr(sys, "frozen", False)
+
+    if is_frozen:
+        # Production: Run without reload, pass app object directly
+        uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)
+    else:
+        # Development: Run with reload
+        uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

@@ -9,17 +9,35 @@
   "devDependencies": {
     "@electron/notarize": "^2.3.0",
     "dotenv": "^16.4.5",
-    "electron": "^41.0.2",
-    "electron-builder": "^26.8.1"
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3"
   },
   "build": {
     "appId": "com.rays.llm.dashboard",
-    "afterSign": "scripts/notarize.js",
     "mac": {
-      "target": "dmg",
-      "hardenedRuntime": true,
+      "target": {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      },
+      "hardenedRuntime": false,
       "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist"
-    }
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "identity": null
+    },
+    "files": [
+      "main.js",
+      "build/entitlements.mac.plist"
+    ],
+    "extraResources": [
+      {
+        "from": "../frontend/dist",
+        "to": "dist"
+      },
+      {
+        "from": "../backend",
+        "to": "backend",
+        "filter": ["dist/main", ".env"]
+      }
+    ]
   }
 }

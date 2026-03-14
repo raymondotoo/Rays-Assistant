@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Body
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.database import get_db
 from app.services.ollama import ollama_service
+import subprocess
 from app.services.feedback import ModelMetricsService
 from app.models.schemas import ModelMetricResponse
 from typing import List
@@ -27,3 +28,17 @@ async def get_model_metric(model_name: str, db: AsyncSession = Depends(get_db)):
     if not metric:
         raise HTTPException(status_code=404, detail="Model metric not found")
     return metric
+
+
+# New endpoint: Download model via Ollama
+@router.post("/download")
+async def download_model(model: str = Body(..., embed=True)):
+    """Download a model using Ollama (ollama pull <model>)"""
+    try:
+        result = subprocess.run(["ollama", "pull", model], capture_output=True, text=True, timeout=600)
+        if result.returncode == 0:
+            return {"success": True, "output": result.stdout}
+        else:
+            return {"success": False, "error": result.stderr}
+    except Exception as e:
+        return {"success": False, "error": str(e)}

@@ -1,6 +1,16 @@
+// Download a model via backend (Ollama)
+export const downloadModel = async (modelName) => {
+  try {
+    const response = await axios.post(`${API_BASE}/models/download`, { model: modelName })
+    return response.data
+  } catch (error) {
+    console.error('Failed to download model:', error)
+    throw error
+  }
+}
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:8001/api'
+const API_BASE = 'http://localhost:8000/api'
 
 export const submitFeedback = async (messageId, modelName, rating, comment) => {
   try {
