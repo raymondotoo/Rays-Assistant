@@ -10,293 +10,84 @@
 
 ## Rays-Assistant
 
-Rays-Assistant is a privacy-focused desktop app for interacting with multiple local LLMs (Ollama, GPT-Neo, Mistral, etc.) via a modern dashboard. All models run entirely on your device—no cloud, no data sharing. Enjoy persistent learning, conversation history, and easy model switching with full control over your data.
+Rays-Assistant is a privacy-focused desktop app for interacting with multiple local LLMs. All models run entirely on your device—no cloud, no data sharing. Enjoy persistent learning, conversation history, and easy model switching with full control over your data.
 
 ## Dashboard Preview
 ![Rays-Assistant Dashboard](Rays%20LLM%20Dashboard.png)
 
 ## Download & Install
 
-[![Download for macOS](https://img.shields.io/badge/Download-macOS%20.dmg-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/download/v1.0.0/rays-llm-electron-1.0.0-arm64.dmg)
+Choose the correct version for your Mac's processor.
 
-1. Download the .dmg file above.
-2. Open and drag the app to Applications.
-3. Launch Rays-Assistant.
+| Processor | Download Link |
+| :--- | :--- |
+| **Apple Silicon** (M1, M2, M3, etc.) | [![Download for macOS (Apple Silicon)](https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/latest/download/rays-llm-electron-1.0.0-arm64.dmg) |
+| **Intel** | [![Download for macOS (Intel)](https://img.shields.io/badge/Download-macOS%20Intel-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/latest/download/rays-llm-electron-1.0.0-x64.dmg) |
 
-For more details, see INSTALL.md.
-	- macOS 11+ (Apple Silicon or Intel)
-	- Python 3.8+ (for backend)
-	- Node.js 16+ (for frontend/Electron)
-	- Ollama installed (for LLM models)
-	- ~15 GB free disk space (for AI models)
-	- 8 GB RAM minimum recommended
-
----
-# Step-by-Step Creation & Packaging Guide
-
-## 1. Project Setup
-
-### Clone the Repo
-
-```bash
-git clone https://github.com/raymondotoo/Rays-Assistant.git
-cd Rays-Assistant
-```
-
-### Prerequisites
-
-- Python 3.8+
-- Node.js 16+ and npm
-- Ollama (https://ollama.ai) installed on your machine
-- **Disk Space**: Approximately 12.3 GB for the default model set.
+**Installation Steps:**
+1.  Download the correct `.dmg` file for your Mac.
+2.  Open the `.dmg` file.
+3.  Drag the `Rays-Assistant` app into your `Applications` folder.
+4.  Launch the app from your Applications folder.
 
 ---
 
-## 2. Build the Frontend (React)
+## System Requirements
 
-```bash
-cd frontend
-npm install
-npm run build
-```
-This creates a `dist` folder with static files.
+-   **Operating System**: macOS 11 (Big Sur) or newer.
+-   **Processor**: Apple Silicon (M-series) or Intel.
+-   **RAM**: 8 GB minimum, 16 GB recommended.
+-   **Disk Space**: ~15 GB of free space is recommended to store the AI models.
 
 ---
 
-## 3. Package the Backend (FastAPI)
+## Dependencies
 
-```bash
-cd ../backend
-pip install -r requirements.txt
-pip install pyinstaller aiosqlite
-pyinstaller --onefile main.py --hidden-import=aiosqlite
-```
-This creates a standalone backend executable in `backend/dist/main`.
+This application requires two key dependencies to be installed on your system.
 
----
+### 1. Ollama
 
-## 4. Set Up Electron App
+Rays-Assistant uses **Ollama** to run AI models locally. You must install it before using the app.
 
-```bash
-cd ../electron-app
-npm install
-```
+-   **Download and install Ollama from the official website**.
 
-### Serve the React Build
+The app will attempt to detect and start Ollama for you, but it's best to have it installed and running first.
 
-```bash
-cd ../frontend
-npx serve -s dist -l 5000
-```
-(Leave this running.)
+### 2. AI Models
 
-### Update Electron main.js
+The app uses several AI models (like Mistral, Neural-Chat, etc.). On first launch, the app will check which models you have and will prompt you to download any that are missing.
 
-- Change the URL to `http://localhost:5000` in `electron-app/main.js`.
+-   **Total Download Size**: ~12.3 GB for the default set of models.
+-   The download will happen in the background. Once complete, the app will ask you to refresh to begin using the new models.
 
 ---
-
-## 5. Start Electron App
-
-```bash
-cd ../electron-app
-npm start
-```
-Electron will launch your dashboard and backend.
-
----
-
-## 6. Package as macOS Installer (.dmg)
-
-```bash
-npm run build
-```
-The .dmg installer will be in `electron-app/dist/`.
-
----
-
-## 7. Add Models After Install
-
-After installing the app, open a terminal and run:
-
-```bash
-ollama pull mistral
-ollama pull gpt-oss:20b
-```
-You can add more models by running `ollama pull <model-name>`.
-
----
-
-## 8. Customizing the App
-
-- **Change Default Models:** Edit `backend/app/core/config.py` and update the `DEFAULT_MODELS` list.
-- **Modify Frontend UI:** Edit React components in `frontend/src/components/`.
-- **Update Electron Settings:** Edit `electron-app/main.js` for window size, backend path, or frontend URL.
-- **Change Installer Name/Icons:** Update `electron-app/package.json` build config and add icon files.
-
----
-
-## 9. Upload Installer to GitHub
-
-- Go to your repo’s Releases page.
-- Upload the .dmg file.
-- Add a download link in your README:
-
-```markdown
-[Download the macOS installer (.dmg)](https://github.com/raymondotoo/Rays-Assistant/releases/latest)
-```
-
----
-
-## 10. Troubleshooting
-
-- If Electron shows a blank screen, check the frontend server and backend executable.
-- If backend fails, ensure all Python dependencies are installed and included in PyInstaller.
-- For model issues, make sure Ollama is running and models are pulled.
-
----
-
-## 11. Updating the App
-
-- Make changes to backend, frontend, or Electron code.
-- Rebuild frontend and backend.
-- Repackage Electron app and .dmg.
-
----
-
-This guide lets anyone replicate, customize, and package the Rays-Assistant app for macOS. For advanced changes, refer to Electron, FastAPI, and React documentation.
-# Rays LLM Dashboard 🚀
-
-A sophisticated multi-model LLM dashboard that runs multiple excellent-performing language models locally and uses real-time feedback to continuously improve performance.
-
-## Features ✨
-
-- **Multi-Model Ensemble**: Query multiple LLMs simultaneously and compare responses
-- **Feedback-Driven Learning**: Rate responses to update model weights over time
-- **Real-Time Metrics**: Track model performance, response times, and model sizes
-- **Beautiful Dashboard**: Modern React interface with model selection and metrics visualization
-- **Local LLM Support**: Runs on your machine using Ollama with models like Mistral, Neural Chat, and OpenHermes
-- **Persistent Storage**: SQLite database for conversations, feedback, and metrics
-
-## Prerequisites 📋
-
-1. **Python 3.8+**
-2. **Node.js 16+** and npm
-3. **Ollama**: Download from https://ollama.ai
-4. **LLM Models**: Pull models via Ollama
-5. **Storage**: ~15 GB free space recommended
-
-## Quick Start 🚀
-
-### Backend Setup
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### Ollama Setup
-```bash
-# Start Ollama
-ollama serve
-
-# Pull models (in another terminal) - Total ~12.3 GB
-ollama pull mistral
-ollama pull neural-chat
-ollama pull openhermes
-```
-
-### Frontend Setup
-```bash
-cd frontend
-npm install
-```
-
-## Running 🏃
-
-**Terminal 1:** `ollama serve`
-
-**Terminal 2:** 
-```bash
-cd backend && source venv/bin/activate
-uvicorn main:app --reload --port 8000
-```
-
-**Terminal 3:**
-```bash
-cd frontend && npm run dev
-```
-
-Dashboard: http://localhost:3000 | API Docs: http://localhost:8000/docs
-
-## How It Works 🧠
-
-1. **Multi-Model Chat**: Send messages to multiple LLMs simultaneously
-2. **Compare Responses**: View model-specific responses side-by-side
-3. **Rate & Learn**: Give feedback to improve model weights
-4. **View Metrics**: Track performance, speed, and model sizes
-5. **Smart Ensemble**: Future queries prioritize higher-rated models
-
-## Key Features 🌟
-
-- Real-time performance metrics
-- Model size tracking (MB)
-- Response time analysis
-- User feedback collection
-- Weighted ensemble voting
-- Persistent conversation history
-- SQLite database integration
-
-## Architecture
-
-```
-React Frontend (3000) ←→ FastAPI Backend (8000) ←→ Ollama API + SQLite DB
-```
-
-## API Endpoints
-
-- `POST /api/chat/send` - Send message to models
-- `POST /api/chat/feedback` - Submit rating
-- `GET /api/models/metrics` - Get model stats
-- `GET /api/models/available` - List available models
 
 ## Troubleshooting
 
-**Ollama not connecting:** Ensure `ollama serve` is running
-**Frontend blank:** Check backend running on 8000 with `uvicorn`
-**Models not available:** Run `ollama list` and pull missing models
+### "App is damaged and can’t be opened" Error
 
-## Project Structure
+This is a standard macOS security feature called Gatekeeper. If you see this message, it means the app is not yet notarized by Apple. You can bypass this in two ways:
 
-```
-Rays-Assistant/
-├── backend/              # FastAPI application
-│   ├── app/
-│   │   ├── core/        # Config & settings
-│   │   ├── db/          # Database setup
-│   │   ├── models/      # SQLAlchemy & Pydantic schemas
-│   │   ├── routes/      # API endpoints
-│   │   └── services/    # Business logic & Ollama integration
-│   ├── main.py          # FastAPI entry point
-│   └── requirements.txt
-├── frontend/             # React dashboard
-│   ├── src/
-│   │   ├── components/  # React components
-│   │   ├── App.jsx
-│   │   ├── store.js     # Zustand store
-│   │   └── api.js       # API client
-│   ├── vite.config.js
-│   └── package.json
-└── README.md
-```
+**Method 1: The Easy Way (Recommended)**
 
-## Customization 🎨
+1.  Go to your `Applications` folder.
+2.  **Right-click** (or `Ctrl`-click) on the `Rays-Assistant` app.
+3.  Select **Open** from the context menu.
+4.  A dialog will appear with a warning. Click the **Open** button to run the app. You only need to do this once.
 
-- **Change Models:** Edit `DEFAULT_MODELS` in `backend/app/core/config.py`
-- **Adjust Learning:** Modify `get_model_weights()` in `backend/app/services/feedback.py`
-- **Dashboard Theme:** Customize `frontend/tailwind.config.js`
+**Method 2: The Terminal Way**
+
+If the above method doesn't work, you can manually remove the quarantine attribute from the app.
+
+1.  Open the `Terminal` app.
+2.  Run the following command:
+    ```bash
+    sudo xattr -rd com.apple.quarantine /Applications/Rays-Assistant.app
+    ```
+3.  Enter your password when prompted. The app should now open normally.
 
 ---
 
-Built with ❤️ using FastAPI + React + Ollama + Tailwind CSS
+## For Developers
+
+Interested in contributing or building the app from the source code? Please see the **Developer Guide** for detailed instructions.
