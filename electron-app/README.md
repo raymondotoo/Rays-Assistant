@@ -67,6 +67,7 @@ If users see "App is damaged and can’t be opened" or "Apple cannot verify the 
     - Ensure you have valid Apple Developer credentials and environment variables set:
        - `APPLE_ID`, `APPLE_APP_SPECIFIC_PASSWORD`, `APPLE_TEAM_ID`
     - The build process will automatically notarize if these are set.
+    - When using GitHub Actions, these should be configured as repository secrets.
 
 ### Troubleshooting Java Errors
 

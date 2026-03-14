@@ -1,17 +1,18 @@
 # Rays-Assistant Installation Guide
 
-## Download
+## Download & Installation
 
-[![Download for macOS](https://img.shields.io/badge/Download-macOS%20.dmg-blue?style=for-the-badge)](https://github.com/raymondotoo/Rays-Assistant/releases/download/v1.0.0/rays-llm-electron-1.0.0-arm64.dmg)
+For the latest downloads and installation instructions, please see the main [README.md](README.md) file or visit the **[GitHub Releases page](https://github.com/raymondotoo/Rays-Assistant/releases)**.
 
-## Install
+You will find installers for both Apple Silicon and Intel-based Macs.
 
-1. Download the .dmg file from the link above.
-2. Open the .dmg and drag the app to your Applications folder.
-3. Launch Rays-Assistant from Applications.
+1.  Download the correct `.dmg` file for your Mac.
+2.  Open the `.dmg` file.
+3.  Drag the `Rays-Assistant` app into your `Applications` folder.
+4.  Launch the app from your Applications folder.
 
 ## Requirements
-- macOS (Apple Silicon)
+- macOS 11 (Big Sur) or newer
 - Ollama installed for local LLMs
 
 ## Source Code
